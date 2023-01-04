@@ -12,7 +12,7 @@
 
 比較容易理解的版本
 
-```c=
+```c
 int removeDuplicates(int* nums, int numsSize){
     int left = 0;
     for(int right=1;right<numsSize;++right){
