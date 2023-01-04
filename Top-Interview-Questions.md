@@ -26,7 +26,7 @@ int removeDuplicates(int* nums, int numsSize){
 ```
 
 舊的
-```c=
+```c
 int removeDuplicates(int* nums, int numsSize){
     int duplicate = 0;
     for(int i=0;i<numsSize-1;++i){
@@ -45,7 +45,7 @@ int removeDuplicates(int* nums, int numsSize){
 :::
 ![](https://i.imgur.com/RDljrC4.png)
 
-```c=
+```c
 int maxProfit(int* prices, int pricesSize){
     int minPrice = INT_MAX;
     int profit = 0;
@@ -64,7 +64,7 @@ int maxProfit(int* prices, int pricesSize){
 
 ### [Rotate Array](https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/646/)
 
-```c=
+```c
 void reverse(int* nums, int left, int right){
     while(left < right){
         int temp = nums[left];
@@ -85,7 +85,7 @@ void rotate(int* nums, int numsSize, int k){
 ```
 
 ##### 解法1，使用額外的空間來存放
-```c=
+```c
 #include <stdio.h>
 
 // 要使用餘除 %
@@ -111,7 +111,7 @@ int main(){
 
 <font color="#f00">記得這邊要用while做, for只適用頭尾的情況</font>
 
-```c=
+```c
 /*
  nums = "----->-->"; k =3
  result = "-->----->";
@@ -161,7 +161,7 @@ int main(){
 ![](https://i.imgur.com/uOCdfK3.jpg)
 ![](https://i.imgur.com/JnQHcap.jpg)
 
-```c=
+```c
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -187,7 +187,7 @@ int main(){
 ```
 
 ##### 雖然程式是正確的，但是超過時間限制QQ，O(n^2)
-```c=
+```c
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -211,7 +211,7 @@ int main(){
 ### [Single Number](https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/549/)
 [xor gate](https://zh.wikipedia.org/wiki/%E5%BC%82%E6%88%96%E9%97%A8)
 ##### O(n) solution using XOR
-```c=
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -234,7 +234,7 @@ int main(){
 感覺這個解法很爛，但比較簡單的暴力解就是這樣= =
 不然就要使用python or java
 :::
-```c=
+```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -276,7 +276,7 @@ int main(){
 }
 ```
 ### [Plus One](https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/559/)
-```c=
+```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -315,7 +315,7 @@ int main(){
 事先將index倒退一格，如果碰上非0就先index+1再進行交換
 :::
 
-```c=
+```c
 void moveZeroes(int* nums, int numsSize){
     int index = -1;
     for(int i=0;i<numsSize;++i){
@@ -333,7 +333,7 @@ void moveZeroes(int* nums, int numsSize){
 ~~後來覺得這個思路比較好，用一個變數去紀錄非0的位置，由於會事先+1，所以如果遇到0，這一輪就跳過。~~
 :::
 
-```c=
+```c
 void moveZeroes(int* nums, int numsSize){
     int index = 0;
     for(int i=0;i<numsSize;++i){
@@ -347,7 +347,7 @@ void moveZeroes(int* nums, int numsSize){
 }
 ```
 ##### 一開始寫的
-```c=
+```c
 void moveZeroes(int* nums, int numsSize){
     int snowballSize=0;
     for(int i=0;i<numsSize;i++){
@@ -364,7 +364,7 @@ void moveZeroes(int* nums, int numsSize){
 ### [Two Sum](https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/546/)
 
 [有uthash的範例](https://leetcode.com/problems/two-sum/discuss/189807/c-and-c%2B%2B-solutions.-c%2B%2B-is-O(n)-time-and-just-6-lines.-Includes-c-O(n)-hashmap-solution)
-```c=
+```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -388,7 +388,7 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize){
 
 [unordered_map end() 用法](https://vimsky.com/zh-tw/examples/usage/unordered_map-end-function-in-c-stl.html)
 
-```cpp=
+```cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -432,7 +432,7 @@ public:
 6  6  6 | 7  7  7 | 8  8  8
 ```
 
-```c=
+```c
 // 注意board因為要在空格處存.所以是char型態！因此都要先-'0'才會變成一般數字大小
 bool isValidSudoku(char** board, int boardSize, int* boardColSize){
     int row[9][9]={};   // ex: 用row[0][2]=1來表示說第一列出現過數字3 (這邊是以題目給的例子為例)
@@ -469,7 +469,7 @@ bool isValidSudoku(char** board, int boardSize, int* boardColSize){
 
 更新
 
-```c=
+```c
 void diagonal(int** matrix, int matrixSize, int* matrixColSize){
     for(int i=0;i<matrixSize;++i){
         for(int j=i+1;j<*matrixColSize;++j){
@@ -500,7 +500,7 @@ old
 
 <font color="#f00">應該是diagonal而不是transpose，命名的不好！</font>
 
-```c=
+```c
 #include <stdio.h>
 
 // 矩陣的主對角線元素不動，其他位置的對稱位置互換，ex:[0][1]跟[1][0]換
@@ -565,7 +565,7 @@ int main(){
 :::info
 char str[]="Hello"是字串，char* str="Hello"也是字串，但是char* str="Hello"的值是不可以被修改的，因為是一個字串常值！而char str[]="Hello"是作為初始值分配給陣列。
 :::
-```c=
+```c
 #include <stdio.h>
 
 void reverseString(char* s, int sSize){
@@ -593,7 +593,7 @@ int main(){
 ![](https://i.imgur.com/TCOOB6d.png)
 
 ### [Reverse Integer](https://leetcode.com/explore/featured/card/top-interview-questions-easy/127/strings/880/)
-```c=
+```c
 int reverse(int x){
     int result = 0;
     while(x!=0){
@@ -614,7 +614,7 @@ int reverse(int x){
 }
 ```
 old
-```c=
+```c
 #include <stdio.h>
 #include <limits.h>
 
@@ -660,7 +660,7 @@ int main(){
 可以再簡化陣列宣告的大小為26，下方已修正！
 :::
 
-```c=
+```c
 // 可以用array，把字串中的英文字母當作index，陣列存放該index對應字母出現的次數，最後跑一個迴圈看哪一個是第一個次數為1的字母
 // int firstUniqChar(char * s){
 //     // z的ASCII是122
@@ -693,7 +693,7 @@ int firstUniqChar(char * s){
 
 ### [Valid Anagram](https://leetcode.com/explore/featured/card/top-interview-questions-easy/127/strings/882/)
 
-```c=
+```c
 bool isAnagram(char * s, char * t){
     int counts[26]={};
     // 照這題的題意其實就是要兩個字串長度相等，每個字母恰好使用一次，所以修改如下！
@@ -718,7 +718,7 @@ bool isAnagram(char * s, char * t){
 另一種解法是，宣告2個大小為26的陣列將每個字母出現的次數存入，然後再將s和t的陣列分別做比較...
 差別應該是有使用到額外的space，但是少了sort (?)
 :::
-```c=
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -747,7 +747,7 @@ int main(){
 ### [Valid Palindrome](https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/883/)
 [isalnum()](http://tw.gitbook.net/c_standard_library/c_function_isalnum.html)
 [不使用內建function的解法](https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/883/discuss/454545/C-no-standard-functions-used)
-```c=
+```c
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
@@ -782,7 +782,7 @@ int main(){
 :::info
 isalnum()會檢查字元和數字，所以要使用isdigit()
 :::
-```c=
+```c
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -846,7 +846,7 @@ int main(){
 [博耶-穆爾字串搜尋演算法](https://zh.wikipedia.org/wiki/%E5%8D%9A%E8%80%B6-%E7%A9%86%E5%B0%94%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95)
 :::
 
-```c=
+```c
 #include <stdio.h>
 #include <string.h>
 
@@ -888,7 +888,7 @@ int main(){
 暫時先使用C++解決
 :::
 
-```cpp=
+```cpp
 /*
  思路就是vector中的string每個都從第一個字母開始比較，
  如果所有string的字母都相同，則繼續比下一個字母，
@@ -928,7 +928,7 @@ public:
 
 [外觀數列](https://zh.wikipedia.org/wiki/%E5%A4%96%E8%A7%80%E6%95%B8%E5%88%97)
 - 這個數列的特點就是，除了第一個數以外，每個數都是對於上一個數外觀的描述
-```c=
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -984,7 +984,7 @@ int main(){
 :::info
 因為是singly的linked-list，可是題目又不給head，因此只能改變當前node的value為下一個點的value，然後將下一個點刪除，超瞎被罵爆= =
 :::
-```c=
+```c
 #include <stdio.h>
 #include <stdlib.h>
 /**
@@ -1028,7 +1028,7 @@ ex: head->next = head->next->next
 
 :::
 
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1075,7 +1075,7 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
 
 ##### 更新版本，用two pointer差距n的做法 
 <font color="#f00">這個版本前面幾個判斷式忘記free </font>
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1132,7 +1132,7 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
 - 標準的解法應該是，先讓一個fast指標往前跑n+1，使得跟在起點的slow指標差距是n。如此一來，如果fast指標還不是linked-list的終點，則和slow指標同時一路遍歷到終點，如此一來，只要刪掉slow指標的next node就可以了！(因為題目要刪的是從尾端數過來第n項，對於正方向來說，slow->next會剛好是倒著數第n項)
 :::
 
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1180,7 +1180,7 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
 }
 ```
 ### [Reverse Linked List](https://leetcode.com/explore/interview/card/top-interview-questions-easy/93/linked-list/560/)
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1207,7 +1207,7 @@ struct ListNode* reverseList(struct ListNode* head){
 <font color="#f00"> 面試題 </font>
    
 ##### Iterative 
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1241,7 +1241,7 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
 }
 ```
 ##### Recursive 
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1274,13 +1274,13 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
 
 
 ```關於使用slow、fast時條件式應該寫成```
-```c=
+```c
 while(fast->next!=NULL && fast->next->next!=NULL){
     
 }
 ```
 ```或是```
-```c=
+```c
 while(fast!=NULL && fast->next!=NULL){
     
 }
@@ -1298,7 +1298,7 @@ while(fast!=NULL && fast->next!=NULL){
 
 <font color="#f00">有還原linked-list的版本</font>
 
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1370,7 +1370,7 @@ bool isPalindrome(struct ListNode* head){
 - 缺點是，修改了原本的list，因此執行時要注意thread的問題
 :::
 
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1422,7 +1422,7 @@ bool isPalindrome(struct ListNode* head){
 - if the Linked List has a cycle walker and runner will meet at some point.
 :::
 [Cycle detection](https://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare)
-```c=
+```c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1451,7 +1451,7 @@ bool hasCycle(struct ListNode *head) {
 ```
 ## Tree
 ### [Maximum Depth of Binary Tree](https://leetcode.com/explore/featured/card/top-interview-questions-easy/94/trees/555/)
-```c=
+```c
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -1482,7 +1482,7 @@ int maxDepth(struct TreeNode* root){
 - 思路是一個點一個點檢查他的大小是否符合最大與最小的限制，而不是一次檢查某個父點的左右子點！
 - NULL應該可以改成題目限制的最大最小值，或是整數的最大最小值
 :::
-```c=
+```c
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -1510,7 +1510,7 @@ bool isValidBST(struct TreeNode* root){
 ```
 ### [Symmetric Tree](https://leetcode.com/explore/interview/card/top-interview-questions-easy/94/trees/627/)
 ##### Recursive
-```c=
+```c
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -1544,7 +1544,7 @@ bool isSymmetric(struct TreeNode* root){
 - 題目給的參數如果不透過範例，會看不太懂意思
 :::
 ##### [參考解答](https://www.youtube.com/watch?v=L82c2m2oX7c&t=161s)
-```c=
+```c
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -1625,7 +1625,7 @@ int** levelOrder(struct TreeNode* root, int* returnSize, int** returnColumnSizes
 - 動態記憶體配置的部分要寫正確
 - 原先TreeNode型態並沒有指標，因此malloc的sizeof是放入TreeNode，而不是TreeNode*
 :::
-```c=
+```c
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -1663,7 +1663,7 @@ struct TreeNode* sortedArrayToBST(int* nums, int numsSize){
 :::
 
 
-```c=
+```c
 // nums1大小是m+n，nums2大小是n
 void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){    
     int i=m-1, j=n-1, k=m+n-1;
@@ -1686,7 +1686,7 @@ void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
 - 使用left + (right - left) / 2 可以有效解決overflow的問題
 - 和原先binary search使用mid-1或mid+1作為新的區間不同的原因是因為，這是在找第一個符合的版本，因此如果找到bad version至少要先保留這一個index不能直接跳過這個版本，以免該版本以前的版本都是好的版本！
 :::
-```c=
+```c
 // The API isBadVersion is defined for you.
 // bool isBadVersion(int version);
 
@@ -1705,7 +1705,7 @@ int firstBadVersion(int n) {
 }
 ```
 更標準一點，都照課本教的
-```c=
+```c
 // The API isBadVersion is defined for you.
 // bool isBadVersion(int version);
 
@@ -1732,7 +1732,7 @@ int firstBadVersion(int n) {
 - 這題有個問題是說，rand那邊寫不好，每次重測都是長一樣的shuffle
 - 不能使用srand(time(NULL))的寫法，不然好像shuffle的結果都會相同（？）
 :::
-```c=
+```c
 typedef struct {
     int size;
     int* original;
@@ -1789,7 +1789,7 @@ void solutionFree(Solution* obj) {
 :::info
 - 用linked-list做stack時，link是往回指向底部，不是往上指！
 :::
-```c=
+```c
 typedef struct Node{
     int val;
     int min;
@@ -1866,7 +1866,7 @@ void minStackFree(MinStack* obj) {
 :::info
 - f(n) = f(n-1)+f(n-2)
 :::
-```c=
+```c
 /*
 Constraints:
 1 <= n <= 45
@@ -1905,7 +1905,7 @@ int climbStairs(int n){
 - 這題只需要找其中一次最大利潤即可
 - 可使用和 [Maximum subarray problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem)類似的邏輯去求出，差別是一個是直接加x，這題則是加上差值
 :::
-```c=
+```c
 
 // 這題只買進賣出一次，所以只要找到一組價差最大的即可
 // prices是一組陣列，而pricesSize是這組陣列的大小
@@ -1929,7 +1929,7 @@ int maxProfit(int* prices, int pricesSize){
 - 有分成 Empty subarrays admitted 和 No empty subarrays admitted，要特別注意！
 - 這題是 No empty subarrays admitted，也就是如果最大sum是負數，也要輸出一個負數！
 :::
-```c=
+```c
 /*
 Constraints:
 1 <= nums.length <= 105
@@ -1961,7 +1961,7 @@ int maxSubArray(int* nums, int numsSize){
 }
 ```
 ### [House Robber](https://leetcode.com/explore/featured/card/top-interview-questions-easy/97/dynamic-programming/576/)
-```c=
+```c
 /*
 Constraints:
 1 <= nums.length <= 100
@@ -2009,7 +2009,7 @@ int rob(int* nums, int numsSize){
 - 懂了，一直沒注意到n可能會佔用更多的空間，分配的空間不夠，已修正
 :::
 
-```c=
+```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -2046,7 +2046,7 @@ char ** fizzBuzz(int n, int* returnSize){
 :::info
 其實蠻合理的，因為通常都會由小到大找，並且去檢查是否為比自己小的質數的倍數來判斷是否為質數
 :::
-```c=
+```c
 int countPrimes(int n){
     // C語言不能使用變數來宣告陣列的大小，ex: int notPrimes[n]，所以改用動態配置，calloc會給初始值0
     int *notPrimes = (int *)calloc(n, sizeof(int));
@@ -2064,7 +2064,7 @@ int countPrimes(int n){
 }
 ```
 ### [Power of Three](https://leetcode.com/explore/featured/card/top-interview-questions-easy/102/math/745/)
-```c=
+```c
 
 // TLE
 // bool isPowerOfThree(int n){
@@ -2086,7 +2086,7 @@ bool isPowerOfThree(int n){
 ### [Roman to Integer](https://leetcode.com/explore/featured/card/top-interview-questions-easy/102/math/878/)
 
 [ASCII](https://zh.wikipedia.org/wiki/ASCII)
-```c=
+```c
 /*
 Symbol       Value
 I             1
@@ -2132,7 +2132,7 @@ int romanToInt(char * s){
 :::info
 以上例來看，n-1會迫使n扣掉原先高位置的bit，補到低位置去，由於n在低位沒有1，所以做and的結果相當於把n最低位的1給消掉了(可能描述得不是很好，看一下例子就會理解)
 :::
-```c=
+```c
 int hammingWeight(uint32_t n) {
     int count = 0;
     while(n!=0){
@@ -2150,7 +2150,7 @@ int hammingWeight(uint32_t n) {
 漢明距就是求兩個數bit不同的位置有幾個，先做xor可以讓不同的位置bit轉為1，相同的位置變成0，因此去計算有幾個bit是1即可得到答案
 :::
 
-```c=
+```c
 // 先做xor使得所有bit不同的位置為1，再使用n & (n-1)的技巧去計算
 int hammingDistance(int x, int y){
     x ^= y;
@@ -2168,7 +2168,7 @@ int hammingDistance(int x, int y){
 :::info
 最直觀的就是用 n & 1 取得n的最後一個bit，接著用or餵給ans，然後再將ans左移，持續做32次
 :::
-```c=
+```c
 uint32_t reverseBits(uint32_t n) {
     uint32_t ans = 0;
     for(int i=0;i<32;i++){
@@ -2185,7 +2185,7 @@ uint32_t reverseBits(uint32_t n) {
 :::
 ![](https://i.imgur.com/6tCRCKT.png)
 ### [Pascal's Triangle](https://leetcode.com/explore/featured/card/top-interview-questions-easy/99/others/601/)
-```c=
+```c
 /**
  * Return an array of arrays of size *returnSize.
  * The sizes of the arrays are returned as *returnColumnSizes array.
@@ -2214,7 +2214,7 @@ int** generate(int numRows, int* returnSize, int** returnColumnSizes){
 :::info
 用stack解
 :::
-```c=
+```c
 bool isValid(char * s){
     // 一般來說s最後面會包含\0，但是用strlen不會計算\0這個位子
     char *stack = (char *)malloc(sizeof(char) * strlen(s)); 
@@ -2262,7 +2262,7 @@ bool isValid(char * s){
 使用xor，和[Single Number](https://leetcode.com/problems/single-number/)使用的解題技巧一樣
 :::
 
-```c=
+```c
 int missingNumber(int* nums, int numsSize){
     int ans = 0;
     for(int i=0;i<numsSize;++i){
@@ -2272,7 +2272,7 @@ int missingNumber(int* nums, int numsSize){
 }
 ```
 舊的
-```c=
+```c
 int missingNumber(int* nums, int numsSize){
     int ans = 0;
     for(int i=0;i<=numsSize;++i){
@@ -2286,7 +2286,7 @@ int missingNumber(int* nums, int numsSize){
 }
 ```
 ##### 可簡化成一個迴圈即可
-```c=
+```c
 int missingNumber(int* nums, int numsSize){
     int ans = 0, i = 0;
     for(i=0;i<numsSize;++i){
@@ -2301,7 +2301,7 @@ int missingNumber(int* nums, int numsSize){
 [Leetcode中支援uthash](https://support.leetcode.com/hc/en-us/articles/360011833974-What-are-the-environments-for-the-programming-languages-)
 
 #### 1. Adding an item to a hash.
-```c=
+```c
 struct hash_entry {
     int id;            /* we'll use this field as the key */
     char name[10];
@@ -2315,7 +2315,7 @@ void add_user(struct hash_entry *s) {
 }
 ```
 #### 2. Looking up an item in a hash:
-```c=
+```c
 struct hash_entry *find_user(int user_id) {
     struct hash_entry *s;
     HASH_FIND_INT(users, &user_id, s);
@@ -2323,7 +2323,7 @@ struct hash_entry *find_user(int user_id) {
 }
 ```
 #### 3. Deleting an item in a hash:
-```c=
+```c
 void delete_user(struct hash_entry *user) {
     HASH_DEL(users, user);  
 }
